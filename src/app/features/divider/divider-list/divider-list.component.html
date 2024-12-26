@@ -1,0 +1,40 @@
+<div class="p-3">
+  <div class="row">
+    <div class="col-12">
+      <h3>Dividers</h3>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Divider ID</th>
+            <th scope="col">Project ID</th>
+            <th scope="col">Object Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Count</th>
+            <th scope="col">Is Default</th>
+            <th scope="col">Master Sheet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dividers" scope="row">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.dividerId }}</td>
+            <td>{{ item.projectId }}</td>
+            <td>{{ item.objectType }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.totalCount }}</td>
+            <td>{{ item.isDefault ? "Yes" : "No" }}</td>
+            <td>{{ item.masterSheet ? "Yes" : "No" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <!-- Search Form -->
+  <div class="row mb-5">
+    <div class="col-md-8">
+      <form class="row g-3">
+        <div class="col-9">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search files..."
+            aria-label="Search"
+            [(ngModel)]="searchQuery"
+            name="searchQuery"
+          />
+        </div>
+        <div class="col-3">
+          <button
+            type="button"
+            class="btn btn-primary w-100"
+            (click)="onSearch(searchQuery)"
+          >
+            Search <i class="fas fa-magnifying-glass ms-2"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div *ngIf="fileResults?.length; else noResults">
+    <div *ngFor="let project of groupedResults | keyvalue" class="mb-5">
+      <h4 class="mb-3 text-primary">Project: {{ project.key }}</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="table-active">
+              <th scope="col">File Id</th>
+              <ng-container *ngFor="let field of project.value[0]?.fields">
+                <th scope="col">{{ field.name }}</th>
+              </ng-container>
+              <th scope="col">View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let file of project.value">
+              <td>{{ file.fileId }}</td>
+              <ng-container *ngFor="let field of file.fields">
+                <td>{{ field.value }}</td>
+              </ng-container>
+              <td class="text-center">
+                <a [href]="file.url" target="_blank" class="btn btn-link">
+                  <i class="fas fa-file"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Results Section -->
+  <ng-template #noResults>
+    <div class="alert alert-dismissible alert-warning">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <h4 class="alert-heading">No Files Found!</h4>
+      <p class="mb-0">No results found. Please refine your search.</p>
+    </div>
+  </ng-template>
+</div>
+
+<div class="row pt-2">
+  <div class="col-12"></div>
+</div>

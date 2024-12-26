@@ -1,0 +1,46 @@
+<div class="p-3">
+  <div class="row">
+    <div class="col-12">
+      <h3>Separators</h3>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Group ID</th>
+            <th scope="col">Project ID</th>
+            <th scope="col">Object Type</th>
+            <th scope="col">Separator ID</th>
+            <th scope="col">Separator Relation</th>
+            <th scope="col">Sort Order</th>
+            <th scope="col">Access</th>
+            <th scope="col">Total Count</th>
+            <th scope="col">Is Default</th>
+            <th scope="col">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of separators" scope="row">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.groupId }}</td>
+            <td>{{ item.projectId }}</td>
+            <td>{{ item.objectType }}</td>
+            <td>{{ item.separatorId }}</td>
+            <td>{{ item.sepRelation }}</td>
+            <td>{{ item.sortOrder }}</td>
+            <td>{{ item.access }}</td>
+            <td>{{ item.totalCount }}</td>
+            <td>{{ item.isDefault ? "Yes" : "No" }}</td>
+            <td>{{ item.required ? "Yes" : "No" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

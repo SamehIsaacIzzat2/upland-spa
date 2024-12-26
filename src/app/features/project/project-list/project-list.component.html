@@ -1,0 +1,72 @@
+<div class="p-3">
+  <div class="row">
+    <div class="col-12">
+      <h3>Projects</h3>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Project Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Last Updated</th>
+            <th scope="col">Enabled Features</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of projects" scope="row">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.projectType }}</td>
+            <td>{{ item.status === 1 ? "Active" : "Inactive" }}</td>
+            <td>{{ item.lastUpdated | date : "short" }}</td>
+
+            <td>
+              <ul>
+                <li *ngIf="item.enableBoxes">Boxes</li>
+                <li *ngIf="item.enableCAR">CAR</li>
+                <li *ngIf="item.enableFBDrive">FB Drive</li>
+                <li *ngIf="item.enableFieldSecurity">Field Security</li>
+                <li *ngIf="item.enableFileTracking">File Tracking</li>
+                <li *ngIf="item.enableFullText">Full Text</li>
+                <li *ngIf="item.enableInteractiveRevisions">
+                  Interactive Revisions
+                </li>
+                <li *ngIf="item.enableManualDividerEntry">
+                  Manual Divider Entry
+                </li>
+                <li *ngIf="item.enableManualSeparatorEntry">
+                  Manual Separator Entry
+                </li>
+                <li *ngIf="item.enableMultiKeySearch">Multi Key Search</li>
+              </ul>
+            </td>
+            <td>
+              <a
+                routerLink="/documents/{{ item.projectId }}"
+                class="btn btn-outline-dark my-2 my-sm-0"
+                >Documents</a
+              >
+              <a
+                routerLink="/dividers/{{ item.projectId }}"
+                class="btn btn-outline-dark my-2 my-sm-0 m-1"
+                >Dividers</a
+              >
+              <a
+                routerLink="/separators/{{ item.projectId }}"
+                class="btn btn-outline-dark my-2 my-sm-0"
+                >Separators</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

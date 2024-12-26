@@ -1,0 +1,38 @@
+<div class="p-3">
+  <div class="row">
+    <div class="col-12">
+      <h3>Users</h3>
+    </div>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col-12">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Display Name</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Email</th>
+            <th scope="col">Active</th>
+            <th scope="col">Out of Office</th>
+            <th scope="col">Time Zone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" scope="row">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.displayName }}</td>
+            <td>{{ user.admin ? "Yes" : "No" }}</td>
+            <td>{{ user.email || "N/A" }}</td>
+            <td>{{ user.active ? "Yes" : "No" }}</td>
+            <td>{{ user.outOfOffice ? "Yes" : "No" }}</td>
+            <td>{{ user.timeZone }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
